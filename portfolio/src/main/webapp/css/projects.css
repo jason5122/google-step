@@ -1,0 +1,254 @@
+body {
+	color: #404040;
+	font-size: 18px;
+	line-height: 1.5;
+}
+
+h1 {
+  color: #999;
+  letter-spacing: 2px;
+  font-size: 13px;
+  text-align: center;
+  margin-top: 20px;
+  font-style: italic;
+}
+
+.main-area {
+	padding: 2em;
+	padding-bottom: 0;
+}
+.cards p {margin-bottom: 1.5em;}
+.cards h2 {font-size: 1.5em;}
+
+img {
+	display: block;
+	border: 0;
+	width: 100%;
+	height: auto;
+}
+
+.module {
+	width: 100%;
+	height: auto;
+  float: left;
+	border-radius: 10px;
+}
+
+#horizon {
+  background:
+		linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.5)
+    ),
+		url("../images/horizonframed.jpg");
+  background-size: cover;
+	position: relative;
+}
+
+#books {
+  background:
+		linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.5)
+    ),
+		url("../images/books.jpg");
+  background-size: cover;
+	position: relative;
+}
+
+#uropguide {
+  background:
+		linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.5)
+    ),
+		url("../images/uropguidemockup.jpg");
+  background-size: cover;
+	position: relative;
+}
+
+#mitprintbot {
+  background:
+		linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.5)
+    ),
+		url("../images/mitprintbot.jpg");
+  background-size: cover;
+	position: relative;
+}
+
+#mit2020vp {
+  background:
+		linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.5)
+    ),
+		url("../images/mit_dome.jpg");
+  background-size: cover;
+	position: relative;
+}
+
+#fluency {
+  background:
+		linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.5)
+    ),
+		url("../images/fluency.jpg");
+  background-size: cover;
+	position: relative;
+}
+
+.lr .title {
+	font-family: 'Montserrat';
+  position: absolute;
+	text-align: right;
+  bottom: 35px;
+  right: 15px;
+	margin-left: 15px;
+  color: white;
+  margin: 0;
+	font-size: 20px;
+	text-shadow: 0 1px 0 black;
+}
+
+.lr .subtitle {
+	font-family: 'Montserrat';
+	position: absolute;
+	text-align: right;
+	bottom: 15px;
+	right: 15px;
+	margin-left: 15px;
+	color: white;
+	margin: 0;
+	text-shadow: 0 1px 0 black;
+
+	font-size: 12px;
+	font-weight: normal;
+}
+
+/* Flexbox */
+@media screen and (min-width: 50em) {
+
+    .outer-wrap {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .content {
+        display: flex;
+    }
+
+    .main-area {
+        -webkit-flex: 1 1 auto;
+            -ms-flex: 1 1 auto;
+                flex: 1 1 auto;
+        -webkit-order: 1;
+            -ms-flex-order: 1;
+                order: 1;
+    }
+
+}
+
+/* Card Based Layout - Base styles */
+
+.card {
+	background: white;
+	margin-bottom: 2em;
+	border-radius: 10px;
+}
+
+.card a {
+	color: black;
+	text-decoration: none;
+	border-radius: 10px;
+}
+
+
+.card a:hover {
+	box-shadow: 3px 3px 8px hsl(0, 0%, 70%);
+  transition: all 0.4s;
+}
+
+.card-content {
+	padding: 1.4em;
+}
+
+.card-content p {
+	font-size: 95%;
+}
+
+.main-title {
+	margin-left: 20px;
+	font-size: 16px;
+}
+
+/* Flexbox stuff */
+
+@media screen and (min-width: 40em) {
+    .cards {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+        -webkit-justify-content: space-between;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+        margin-top: -1em;
+    }
+
+    .card {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex: 0 1 calc(50% - .5em);
+            -ms-flex: 0 1 calc(50% - .5em);
+                flex: 0 1 calc(50% - .5em);
+        margin-bottom: 1em;
+    }
+
+		.main-title {
+			margin-left: 0px;
+			font-size: 1em;
+		}
+
+		.main-title h2 {
+			margin-top: 0px;
+		}
+}
+
+@media screen and (max-width: 40em) {
+
+  .main-area {padding: 0em;}
+  .card {
+		margin-bottom: 0em;
+		border-radius: 0px;
+	}
+
+	.module {
+		border-radius: 0px;
+	}
+
+}
+
+@media screen and (min-width: 62em) {
+    .cards {
+        margin-top: inherit;
+    }
+
+    .card {
+        -webkit-flex: 0 1 calc(33% - 1em);
+            -ms-flex: 0 1 calc(33% - 1em);
+                flex: 0 1 calc(33% - 1em);
+        margin-bottom: 2em;
+    }
+}

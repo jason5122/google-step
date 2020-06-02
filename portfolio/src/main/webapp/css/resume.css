@@ -1,0 +1,14 @@
+.view-pdf-text {
+  text-align: center;
+  margin-top: 4%;
+}
+
+.resume-display {
+  min-width: 60vw;
+  height: 100vh;
+
+  zoom: -0.15;
+
+  margin-top: 2%;
+  margin-bottom: 3%;
+}

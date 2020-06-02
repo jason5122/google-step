@@ -1,0 +1,52 @@
+.main-content {
+  margin-left: 6%;
+  margin-right: 6%;
+}
+
+.main-content img {
+  width: 40%;
+  margin: 40px 30px 5px 0;
+  float: left;
+  border-radius: 10px;
+}
+
+.me-horiz {
+  display: none;
+}
+
+.main-content-text {
+  display: inline;
+  font-family: 'Josefin Sans';
+  font-family: 'Quicksand';
+  font-size: 1em;
+  line-height: 1.75;
+}
+
+.hello-text {
+  margin-top: 40px;
+}
+
+h2 {
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 850px) {
+  .main-content img {
+    width: 300px;
+    margin: 30px 30px 5px 0;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .main-content img {
+    width: 100%;
+  }
+
+  .me-horiz {
+    display: inherit;
+  }
+
+  .me-vert {
+    display: none;
+  }
+}
