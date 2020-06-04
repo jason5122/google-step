@@ -1,0 +1,52 @@
+# This is a combination of 4 commits.
+# This is the 1st commit message:
+
+Update the     README.md file to describe the     repo.
+
+# This is the commit message #2:
+
+Ignore .DS_Store
+# This is the commit message #3:
+
+Add images and assets
+
+# This is the commit message #4:
+
+Start out from personal website tempmlate
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Author:    Jason Han <jasonhan@google.com>
+# Date:      Tue Jun 2 09:03:18 2020 +0000
+#
+# interactive rebase in progress; onto 640ff5d
+# Last commands done (4 commands done):
+#    squash a0fdfc9 Add images and assets
+#    squash 7149592 Start out from personal website tempmlate
+# Next commands to do (3 remaining commands):
+#    reword 22c255d Format and touch up code
+#    squash 391c0b2 Format using Prettier
+# You are currently rebasing branch 'JasonHanDevelopment' on '640ff5d'.
+#
+# Changes to be committed:
+#	modified:   .gitignore
+#	modified:   README.md
+#	new file:   portfolio/src/main/webapp/blog.html
+#	new file:   portfolio/src/main/webapp/css/blog.css
+#	new file:   portfolio/src/main/webapp/css/global.css
+#	new file:   portfolio/src/main/webapp/css/index.css
+#	new file:   portfolio/src/main/webapp/css/projects.css
+#	new file:   portfolio/src/main/webapp/css/resume.css
+#	new file:   portfolio/src/main/webapp/favicon.ico
+#	new file:   portfolio/src/main/webapp/images/divider.png
+#	new file:   portfolio/src/main/webapp/images/portrait.jpg
+#	modified:   portfolio/src/main/webapp/index.html
+#	new file:   portfolio/src/main/webapp/nav.js
+#	new file:   portfolio/src/main/webapp/projects.html
+#	new file:   portfolio/src/main/webapp/resume.html
+#	new file:   portfolio/src/main/webapp/resume.pdf
+#	deleted:    portfolio/src/main/webapp/script.js
+#	new file:   portfolio/src/main/webapp/site.webmanifest
+#	deleted:    portfolio/src/main/webapp/style.css
+#
