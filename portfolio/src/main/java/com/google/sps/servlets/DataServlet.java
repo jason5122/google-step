@@ -19,14 +19,40 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.*;
+import java.util.*;
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
-  @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    response.setContentType("text/html;");
-    response.getWriter().println("Hello Jason!");
-  }
+	private ArrayList<String> msgs = new ArrayList<>();
+
+	@Override
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String json = hardCodedJson();
+		// Send the JSON as the response
+		response.setContentType("application/json;");
+		response.getWriter().println(json);
+	}
+
+	/**
+	* Returns a hard-coded JSON string using manual String concatenation.
+	*/
+	private String hardCodedJson() {
+		msgs.add("hello");
+		msgs.add("goodbye");
+		msgs.add("see ya");
+		String json = "{";
+		json += "\"msg1\": ";
+		json += "\"" + msgs.get(0) + "\"";
+		json += ", ";
+		json += "\"msg2\": ";
+		json += "\"" + msgs.get(1) + "\"";
+		json += ", ";
+		json += "\"msg3\": ";
+		json += "\"" + msgs.get(2) + "\"";
+		json += "}";
+		return json;
+	}
 }
