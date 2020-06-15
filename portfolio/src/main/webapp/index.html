@@ -17,7 +17,7 @@
   />
 </head>
 
-<body onload="getRandomQuote()">
+<body onload="fetchData()">
   <nav class="navbar">
     <div class="navbar-wrapper">
       <span class="navbar-toggle" id="js-navbar-toggle"></span>
@@ -40,8 +40,8 @@
   </nav>
   <div id="wrapper">
     <div class="main-content">
-      <img class="me-vert" src="resources/portrait.jpg" />
-      <img class="me-horiz" src="resources/portrait.jpg" />
+      <img class="me-vert" src="images/portrait.jpg" />
+      <img class="me-horiz" src="images/portrait.jpg" />
       <div class="main-content-text">
         <h2 class="hello-text">Hello,</h2>
         <p>
@@ -58,14 +58,14 @@
         </p>
       </div>
 
-      <div id="step2">
-        <h2>Step 2: fetch data from server and add to DOM (using body onload)</h2>
-        <div id="quote-container"></div>
+      <div id="step-3">
+        <h2>Step 3 JSON test</h2>
+        <div id="fetched-data"></div>
       </div>
     </div>
 
     <footer class="footer">
-      <img class="divider" src="resources/divider.png" />
+      <img class="divider" src="images/divider.png" />
       <div class="links">
         <span><a href="mailto:jjhan@vassar.edu">Email</a></span>
         <span>/</span>
