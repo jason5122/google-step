@@ -8,15 +8,16 @@
 
   <!-- JS  -->
   <script src="scripts/nav.js"></script>
+  <script src="scripts/script.js"></script>
 
   <!-- Fonts -->
   <link
-    href="https://fonts.googleapis.com/css?family=Quicksand|Josefin+Sans:300|Raleway"
-    rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Quicksand|Josefin+Sans:300|Raleway"
+  rel="stylesheet"
   />
 </head>
 
-<body>
+<body onload="getRandomQuote()">
   <nav class="navbar">
     <div class="navbar-wrapper">
       <span class="navbar-toggle" id="js-navbar-toggle"></span>
@@ -45,9 +46,9 @@
         <h2 class="hello-text">Hello,</h2>
         <p>
           My name is <b>Jason Han</b>. I'm from Jersey City, New Jersey, and I'm
-          a prospective Computer Science / Economics major at Vassar College! My
+          a Computer Science major and prospective Math minor at Vassar College! My
           goal is to explore as much as I can in my freshman year and focus on
-          my interests – CS, economics, physics, and tennis, to name a few.
+          my interests – CS, research, physics, and tennis, to name a few.
         </p>
         <p>
           Feel free to contact me at
@@ -55,6 +56,11 @@
           Instagram (at the bottom). Feel free to also check out my LinkedIn or
           my GitHub.
         </p>
+      </div>
+
+      <div id="step2">
+        <h2>Step 2: fetch data from server and add to DOM (using body onload)</h2>
+        <div id="quote-container"></div>
       </div>
     </div>
 
