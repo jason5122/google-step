@@ -19,40 +19,24 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.*;
-import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
+import com.google.gson.Gson;
 
-/** Servlet that returns some example content. TODO: modify this file to handle comments data */
+/** Servlet that returns some data. */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
-	private ArrayList<String> msgs = new ArrayList<>();
-
-	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String json = hardCodedJson();
-		// Send the JSON as the response
-		response.setContentType("application/json;");
-		response.getWriter().println(json);
-	}
-
-	/**
-	* Returns a hard-coded JSON string using manual String concatenation.
-	*/
-	private String hardCodedJson() {
-		msgs.add("hello");
-		msgs.add("goodbye");
-		msgs.add("see ya");
-		String json = "{";
-		json += "\"msg1\": ";
-		json += "\"" + msgs.get(0) + "\"";
-		json += ", ";
-		json += "\"msg2\": ";
-		json += "\"" + msgs.get(1) + "\"";
-		json += ", ";
-		json += "\"msg3\": ";
-		json += "\"" + msgs.get(2) + "\"";
-		json += "}";
-		return json;
-	}
+  @Override
+  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    List<String> msgs = new ArrayList<>();
+    msgs.add("hello");
+    msgs.add("goodbye");
+    msgs.add("see ya");
+    Gson gson = new Gson();
+    String json = gson.toJson(msgs);
+    // Send the JSON as the response
+    response.setContentType("application/json;");
+    response.getWriter().println(json);
+  }
 }

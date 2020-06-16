@@ -13,24 +13,13 @@
 // limitations under the License.
 
 /**
- * Fetches hard coded data from the server and adds it to the DOM.
+ * Fetches data from the server and adds it to the DOM.
  */
- function fetchData() {
-  fetch('/data').then(response => response.json()).then((msgs) => {
-    const msgsListElement = document.getElementById('fetched-data');
-    msgsListElement.innerHTML = '';
-    msgsListElement.appendChild(
-      createListElement('Message 1: ' + msgs.msg1));
-    msgsListElement.appendChild(
-      createListElement('Message 2: ' + msgs.msg2));
-    msgsListElement.appendChild(
-      createListElement('Message 3: ' + msgs.msg3));
-  });
-}
-
-/** Creates an <li> element containing text. */
-function createListElement(text) {
-  const liElement = document.createElement('li');
-  liElement.innerText = text;
-  return liElement;
+function fetchData() {
+  fetch("/data")
+    .then((response) => response.json())
+    .then((msgs) => {
+      const msgsTest = document.getElementById("fetched-data");
+      msgsTest.innerText = msgs;
+    });
 }
