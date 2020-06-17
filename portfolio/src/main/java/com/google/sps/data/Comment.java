@@ -14,20 +14,22 @@
 
 package com.google.sps.data;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Date;
 
-/**
- * Database that contains comments found in /blog.html
- *
- * Note: The private variables in this class are converted into JSON.
- */
-public class Database {
+/** An item on a comment list. */
+public final class Comment {
 
-    /** List of all comments */
-    private final List<String> history = new ArrayList<>();
+    private final long id;
+    private final String name;
+    private final String email;
+    private final String body;
+    private final Date timestamp;
 
-    public void logComment(String name, String comment) {
-        history.add(name + ": " + comment);
+    public Comment(long id, String name, String email, String body, Date timestamp) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.body = body;
+        this.timestamp = timestamp;
     }
 }

@@ -12,33 +12,40 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/**
- * Fetches the current state of the comments and builds the UI.
- */
-function fetchComments() {
-    fetch("/comments")
-        .then((response) => response.json())
-        .then((comments) => {
-            // Build the list of history entries.
-            const historyEl = document.getElementById("history");
-            comments.history.forEach((line) => {
-                historyEl.appendChild(createListElement(line));
-            });
-        });
+/** Fetches comments from the server and adds them to the DOM. */
+function loadComments() {
+    fetch('/list-comments').then(response => response.json()).then((comments) => {
+        const commentListEl = document.getElementById('comments-list');
+        comments.forEach((comment) => {
+            commentListEl.appendChild(createCommentElement(comment));
+        })
+    });
 }
 
-/** Creates an <li> element containing text. */
-function createListElement(text) {
-    const listEl = document.createElement("li");
-    listEl.innerText = text;
-    return listEl;
+/** Creates an element that represents a comment, including its delete button. */
+function createCommentElement(comment) {
+    const commentEl = document.createElement('li');
+    commentEl.className = 'comment';
+
+    const textEl = document.createElement('span');
+    textEl.innerText = comment.name + " (" + comment.email + "): " + comment.body + " at " + comment.timestamp.toString();
+
+    const deleteButtonEl = document.createElement('button');
+    deleteButtonEl.innerText = 'Delete';
+    deleteButtonEl.addEventListener('click', () => {
+        deleteComment(comment);
+        // Remove the comment from the DOM.
+        commentEl.remove();
+    });
+
+    commentEl.appendChild(textEl);
+    commentEl.appendChild(deleteButtonEl);
+    return commentEl;
 }
 
-function validateForm() {
-    const nameEl = document.forms["comment-form"]["name-input"].value;
-    const commentEl = document.forms["comment-form"]["comment-input"].value;
-    if (nameEl == "" || commentEl == "") {
-        alert("Every field must be filled out");
-        return false;
-    }
+/** Tells the server to delete the comment. */
+function deleteComment(comment) {
+    const params = new URLSearchParams();
+    params.append('id', comment.id);
+    fetch('/delete-comment', { method: 'POST', body: params });
 }

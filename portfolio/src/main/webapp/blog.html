@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Quicksand|Josefin+Sans:300|Raleway" rel="stylesheet" />
 </head>
 
-<body onload="fetchComments()">
+<body onload="loadComments()">
     <nav class="navbar">
         <div class="navbar-wrapper">
             <span class="navbar-toggle" id="js-navbar-toggle"></span>
@@ -34,18 +34,19 @@
     </nav>
     <div id="wrapper">
         <div class="main-content" style="width: 100%; text-align: center;">
-            <div id="step-4">
+            <div id="comments">
                 <h1>Comments</h1>
-                <p>Feel free to leave a comment below!<p>
-                <ul id="history"></ul>
-                <form name="comment-form" action="/comments" method="POST" onsubmit="return validateForm()">
-                    <p>Comment:</p>
-                    <input name="name-input" type="text" placeholder="Name" />
+                <form method="POST" action="/new-comment">
+                    <input type="text" name="name-input" placeholder="Name" />
                     <br /><br />
-                    <textarea name="comment-input" placeholder="Comment"></textarea>
+                    <input type="text" name="email-input" placeholder="Email" />
                     <br /><br />
-                    <input type="submit" />
+                    <textarea name="body-input" placeholder="Comment"></textarea>
+                    <br />
+                    <button>Submit</button>
                 </form>
+                <hr />
+                <ul id="comments-list"></ul>
             </div>
         </div>
         <footer class="footer">
