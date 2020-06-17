@@ -13,13 +13,32 @@
 // limitations under the License.
 
 /**
- * Fetches data from the server and adds it to the DOM.
+ * Fetches the current state of the comments and builds the UI.
  */
-function fetchData() {
-  fetch("/data")
-    .then((response) => response.json())
-    .then((msgs) => {
-      const msgsTest = document.getElementById("fetched-data");
-      msgsTest.innerText = msgs;
-    });
+function fetchComments() {
+    fetch("/comments")
+        .then((response) => response.json())
+        .then((comments) => {
+            // Build the list of history entries.
+            const historyEl = document.getElementById("history");
+            comments.history.forEach((line) => {
+                historyEl.appendChild(createListElement(line));
+            });
+        });
+}
+
+/** Creates an <li> element containing text. */
+function createListElement(text) {
+    const listEl = document.createElement("li");
+    listEl.innerText = text;
+    return listEl;
+}
+
+function validateForm() {
+    const nameEl = document.forms["comment-form"]["name-input"].value;
+    const commentEl = document.forms["comment-form"]["comment-input"].value;
+    if (nameEl == "" || commentEl == "") {
+        alert("Every field must be filled out");
+        return false;
+    }
 }

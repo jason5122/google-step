@@ -14,29 +14,34 @@
 
 package com.google.sps.servlets;
 
+import com.google.sps.data.Database;
+import com.google.gson.Gson;
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
-import java.util.ArrayList;
-import com.google.gson.Gson;
 
-/** Servlet that returns some data. */
-@WebServlet("/data")
-public class DataServlet extends HttpServlet {
+/** Servlet that encapsulates the comment system. */
+@WebServlet("/comments")
+public final class DataServlet extends HttpServlet {
 
-  @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    List<String> msgs = new ArrayList<>();
-    msgs.add("hello");
-    msgs.add("goodbye");
-    msgs.add("see ya");
-    Gson gson = new Gson();
-    String json = gson.toJson(msgs);
-    // Send the JSON as the response
-    response.setContentType("application/json;");
-    response.getWriter().println(json);
-  }
+    private Database database = new Database();
+
+    @Override
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.setContentType("application/json");
+        String json = new Gson().toJson(database);
+        response.getWriter().println(json);
+    }
+
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        // Get the input from the form.
+        String name = request.getParameter("name-input");
+        String comment = request.getParameter("comment-input");
+        database.logComment(name, comment);
+        // Redirect back to the HTML page.
+        response.sendRedirect("/blog.html");
+    }
 }
