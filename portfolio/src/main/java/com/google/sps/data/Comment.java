@@ -20,13 +20,15 @@ import java.util.Date;
 public final class Comment {
 
     private final long id;
+    private final String title;
     private final String name;
     private final String email;
     private final String body;
     private final Date timestamp;
 
-    public Comment(long id, String name, String email, String body, Date timestamp) {
+    public Comment(long id, String title, String name, String email, String body, Date timestamp) {
         this.id = id;
+        this.title = title;
         this.name = name;
         this.email = email;
         this.body = body;

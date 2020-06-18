@@ -24,11 +24,36 @@ function loadComments() {
 
 /** Creates an element that represents a comment, including its delete button. */
 function createCommentElement(comment) {
+    // List and article item
     const commentEl = document.createElement('li');
-    commentEl.className = 'comment';
+    commentEl.className = 'post';
+    const articleEl = document.createElement('article');
+    commentEl.appendChild(articleEl);
 
-    const textEl = document.createElement('span');
-    textEl.innerText = comment.name + " (" + comment.email + "): " + comment.body + " at " + comment.timestamp.toString();
+    // Title
+    const titleEl = document.createElement('header');
+    const titleText = document.createElement('h2');
+    titleText.textContent = comment.title;
+    titleEl.appendChild(titleText);
+    articleEl.appendChild(titleEl);
+
+    // Date and author
+    const dateAndAuthorEl = document.createElement('footer');
+    const dateText = document.createElement('abbr');
+    dateText.textContent = comment.timestamp.toString();
+    const authorText = document.createElement('address');
+    authorText.textContent = "by " + comment.name + " (" + comment.email + ")";
+    dateAndAuthorEl.appendChild(dateText);
+    dateAndAuthorEl.appendChild(authorText);
+    articleEl.appendChild(dateAndAuthorEl);
+
+    // Body
+    const bodyEl = document.createElement('div');
+    bodyEl.className = 'entry-content';
+    const bodyText = document.createElement('p');
+    bodyText.textContent = comment.body;
+    bodyEl.appendChild(bodyText);
+    articleEl.appendChild(bodyEl);
 
     const deleteButtonEl = document.createElement('button');
     deleteButtonEl.innerText = 'Delete';
@@ -37,9 +62,8 @@ function createCommentElement(comment) {
         // Remove the comment from the DOM.
         commentEl.remove();
     });
+    articleEl.appendChild(deleteButtonEl);
 
-    commentEl.appendChild(textEl);
-    commentEl.appendChild(deleteButtonEl);
     return commentEl;
 }
 

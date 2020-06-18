@@ -30,12 +30,14 @@ public class NewCommentServlet extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String title = request.getParameter("title-input");
         String name = request.getParameter("name-input");
         String email = request.getParameter("email-input");
         String body = request.getParameter("body-input");
         Date timestamp = new Date(System.currentTimeMillis());
 
         Entity commentEntity = new Entity("Comment");
+        commentEntity.setProperty("title", title);
         commentEntity.setProperty("name", name);
         commentEntity.setProperty("email", email);
         commentEntity.setProperty("body", body);

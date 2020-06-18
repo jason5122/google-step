@@ -37,6 +37,8 @@
             <div id="comments">
                 <h1>Comments</h1>
                 <form method="POST" action="/new-comment">
+                    <input type="text" name="title-input" placeholder="Title" />
+                    <br /><br />
                     <input type="text" name="name-input" placeholder="Name" />
                     <br /><br />
                     <input type="text" name="email-input" placeholder="Email" />
@@ -46,9 +48,9 @@
                     <button>Submit</button>
                 </form>
                 <hr />
-                <ul id="comments-list"></ul>
             </div>
         </div>
+        <ul id="comments-list" style="list-style: none;"></ul>
         <footer class="footer">
             <img class="divider" src="images/divider.png" />
             <div class="links">
