@@ -1,80 +1,67 @@
 <head>
-  <title>Jason Han</title>
-  <meta charset="UTF-8">
-
-  <!-- CSS  -->
-  <link rel="stylesheet" href="css/index.css" />
-  <link rel="stylesheet" href="css/global.css" />
-
-  <!-- JS  -->
-  <script src="scripts/nav.js"></script>
-  <script src="scripts/script.js"></script>
-
-  <!-- Fonts -->
-  <link
-  href="https://fonts.googleapis.com/css?family=Quicksand|Josefin+Sans:300|Raleway"
-  rel="stylesheet"
-  />
+    <title>Jason Han</title>
+    <meta charset="UTF-8">
+    <!-- CSS  -->
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/global.css" />
+    <!-- JS  -->
+    <script src="scripts/nav.js"></script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Quicksand|Josefin+Sans:300|Raleway" rel="stylesheet" />
 </head>
 
-<body onload="fetchData()">
-  <nav class="navbar">
-    <div class="navbar-wrapper">
-      <span class="navbar-toggle" id="js-navbar-toggle"></span>
-      <a href="index.html" class="logo"><b>Jason Han</b></a>
-      <ul class="main-nav" id="js-menu">
-        <li>
-          <a href="index.html" class="nav-links">About</a>
-        </li>
-        <li>
-          <a href="projects.html" class="nav-links">Projects</a>
-        </li>
-        <li>
-          <a href="resume.html" class="nav-links">Resume</a>
-        </li>
-        <li>
-          <a href="blog.html" class="nav-links">Blog</a>
-        </li>
-      </ul>
+<body>
+    <nav class="navbar">
+        <div class="navbar-wrapper">
+            <span class="navbar-toggle" id="js-navbar-toggle"></span>
+            <a href="index.html" class="logo"><b>Jason Han</b></a>
+            <ul class="main-nav" id="js-menu">
+                <li>
+                    <a href="index.html" class="nav-links">About</a>
+                </li>
+                <li>
+                    <a href="projects.html" class="nav-links">Projects</a>
+                </li>
+                <li>
+                    <a href="resume.html" class="nav-links">Resume</a>
+                </li>
+                <li>
+                    <a href="blog.html" class="nav-links">Blog</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div id="wrapper">
+        <div class="main-content">
+            <img class="me-vert" src="images/portrait.jpg" />
+            <img class="me-horiz" src="images/portrait.jpg" />
+            <div class="main-content-text">
+                <h2 class="hello-text">Hello,</h2>
+                <p>
+                    My name is <b>Jason Han</b>. I'm from Jersey City, New Jersey, and I'm
+                    a Computer Science major and prospective Math minor at Vassar College! My
+                    goal is to explore as much as I can in my freshman year and focus on
+                    my interests – CS, research, physics, and tennis, to name a few.
+                </p>
+                <p>
+                    Feel free to contact me at
+                    <a href="mailto:jjhan@vassar.edu">jjhan@vassar.edu</a> or through my
+                    Instagram (at the bottom). Feel free to also check out my LinkedIn or
+                    my GitHub.
+                </p>
+            </div>
+        </div>
+        <footer class="footer">
+            <img class="divider" src="images/divider.png" />
+            <div class="links">
+                <span><a href="mailto:jjhan@vassar.edu">Email</a></span>
+                <span>/</span>
+                <span><a href="https://www.linkedin.com/in/jasonhan-vassar/">Linkedin</a></span>
+                <span>/</span>
+                <span><a href="https://github.com/jasonhan-vassar">Github</a></span>
+                <span>/</span>
+                <span><a href="https://www.instagram.com/jason5122/">Instagram</a></span>
+            </div>
+        </footer>
     </div>
-  </nav>
-  <div id="wrapper">
-    <div class="main-content">
-      <img class="me-vert" src="images/portrait.jpg" />
-      <img class="me-horiz" src="images/portrait.jpg" />
-      <div class="main-content-text">
-        <h2 class="hello-text">Hello,</h2>
-        <p>
-          My name is <b>Jason Han</b>. I'm from Jersey City, New Jersey, and I'm
-          a Computer Science major and prospective Math minor at Vassar College! My
-          goal is to explore as much as I can in my freshman year and focus on
-          my interests – CS, research, physics, and tennis, to name a few.
-        </p>
-        <p>
-          Feel free to contact me at
-          <a href="mailto:jjhan@vassar.edu">jjhan@vassar.edu</a> or through my
-          Instagram (at the bottom). Feel free to also check out my LinkedIn or
-          my GitHub.
-        </p>
-      </div>
-
-      <div id="step-3">
-        <h2>Step 3 JSON test</h2>
-        <div id="fetched-data"></div>
-      </div>
-    </div>
-
-    <footer class="footer">
-      <img class="divider" src="images/divider.png" />
-      <div class="links">
-        <span><a href="mailto:jjhan@vassar.edu">Email</a></span>
-        <span>/</span>
-        <span><a href="https://www.linkedin.com/in/jasonhan-vassar/">Linkedin</a></span>
-        <span>/</span>
-        <span><a href="https://github.com/jasonhan-vassar">Github</a></span>
-        <span>/</span>
-        <span><a href="https://www.instagram.com/jason5122/">Instagram</a></span>
-      </div>
-    </footer>
-  </div>
 </body>
