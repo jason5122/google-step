@@ -29,40 +29,33 @@ public final class FindMeetingQuery {
     public static Collection<TimeRange> query(Collection<Event> events, MeetingRequest request) {
         List<Event> eventsCopy = new ArrayList<>(events);
         Collections.sort(eventsCopy, EVENT_ORDER_BY_START);
-        Collection<String> mandatory = request.getAttendees();
+        Collection<String> allAttendees = new LinkedList<>(request.getAttendees());
+        allAttendees.addAll(request.getOptionalAttendees());
         long duration = request.getDuration();
         List<TimeRange> result = new LinkedList<>();
         int start = 0; // Beginning of day
 
-        while (!eventsCopy.isEmpty()) {
-            Event event = eventsCopy.get(0);
-
-            // Remove if irrelevant
+        for (Event event : eventsCopy) {
+            // Skip event if it does not contain relevant attendees
             Set<String> attendees = event.getAttendees();
-            if (Collections.disjoint(attendees, mandatory)) {
-                eventsCopy.remove(0);
+            if (Collections.disjoint(attendees, allAttendees))
                 continue;
-            }
 
-            // Remove if nested
+            // Skip event if nested
             int eventStart = event.getWhen().start();
             int eventEnd = event.getWhen().start() + event.getWhen().duration();
-            if (start > eventStart && start > eventEnd) {
-                eventsCopy.remove(0);
+            if (start > eventStart && start > eventEnd)
                 continue;
-            }
 
-            // Continue along if overlapping
+            // Continue from event end if overlapping
             if (start > eventStart) {
                 start = eventEnd;
-                eventsCopy.remove(0);
                 continue;
             }
 
             if (start != eventStart && eventStart - start >= duration)
                 result.add(TimeRange.fromStartEnd(start, eventStart, false));
-            eventsCopy.remove(0);
-            start = eventStart + event.getWhen().duration(); // Continue from the end of nextEvent
+            start = eventStart + event.getWhen().duration(); // Continue from the end of event
         }
         if (start != TimeRange.END_OF_DAY && TimeRange.END_OF_DAY - start >= duration)
             result.add(TimeRange.fromStartEnd(start, TimeRange.END_OF_DAY, true));
@@ -70,5 +63,3 @@ public final class FindMeetingQuery {
         return (result);
     }
 }
-
-
